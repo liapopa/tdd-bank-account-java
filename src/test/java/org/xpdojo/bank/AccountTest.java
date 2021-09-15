@@ -3,26 +3,41 @@ package org.xpdojo.bank;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
+import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.isEquals;
 //import static org.hamcrest.*;
 
 public class AccountTest {
 
     @Test
 	//@Disabled
-    public void depositAnAmountToIncreaseTheBalance() throws Exception {
+    public void depositAnAmountToIncreaseTheBalance()  {
 
         //arrange
         Account account = new Account();
         account.deposit(10);
-        assertThat(account.balance);
+        assertThat(account.balance).isEqualTo(10) ;
         //act (add some money)
 
-
         //assert
-
 
         //assertThat("your first test").isBlank();
         //if ("gd".contains("d")) throw new Exception("Exception !!!");
     }
+
+    public void startingBalanceIsZero(){
+        Account account = new Account();
+        assertThat(account.balance).isEqualTo(0);
+    }
+
+    public void checkBalance(){
+        Account account = new Account();
+        account.deposit(100);
+        account.deposit(200);
+        assertThat(account.balance).isEqualTo(300);
+    }
+
 }
