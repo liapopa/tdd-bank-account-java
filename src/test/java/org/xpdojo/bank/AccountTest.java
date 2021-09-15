@@ -28,16 +28,27 @@ public class AccountTest {
         //if ("gd".contains("d")) throw new Exception("Exception !!!");
     }
 
+    @Test
     public void startingBalanceIsZero(){
         Account account = new Account();
         assertThat(account.balance).isEqualTo(0);
     }
 
+    @Test
     public void checkBalance(){
         Account account = new Account();
         account.deposit(100);
         account.deposit(200);
         assertThat(account.balance).isEqualTo(300);
+    }
+
+    @Test
+    public void withdrawToDecreaseTheBalance()
+    {
+        Account account = new Account();
+        account.deposit(500);
+        account.withdraw(100);
+        assertThat(account.balance).isEqualTo(400);
     }
 
 }
