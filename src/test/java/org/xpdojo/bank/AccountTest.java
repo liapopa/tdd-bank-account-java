@@ -52,8 +52,7 @@ public class AccountTest {
     }
 
     @Test
-    public void transferMoney()
-    {
+    public void transferMoney()  {
      Account srcAccount = new Account();
      srcAccount.deposit(5000);
 
@@ -64,6 +63,9 @@ public class AccountTest {
 
      assertThat(srcAccount.balance).isEqualTo(4000);
      assertThat(tgtAccount.balance).isEqualTo(1010);
+
+
+     assertThat(srcAccount.transfer(tgtAccount, -100)).isEqualTo(false);
 
     }
 

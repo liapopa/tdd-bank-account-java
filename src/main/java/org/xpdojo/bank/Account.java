@@ -12,8 +12,13 @@ public class Account {
         balance -= i;
     }
 
-    public void transfer(Account tgtAccount, int i) {
-        this.balance -= i;
-        tgtAccount.balance += i;
+    public boolean transfer(Account tgtAccount, int i) {
+        if (i< 0) { //throw new Exception("Transfer correct amount");
+         return false; }
+        else {
+            this.balance -= i;
+            tgtAccount.balance += i;
+            return true;
+        }
     }
 }
