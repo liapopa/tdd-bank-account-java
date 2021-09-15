@@ -11,4 +11,9 @@ public class Account {
     public void withdraw(int i) {
         balance -= i;
     }
+
+    public void transfer(Account tgtAccount, int i) {
+        this.balance -= i;
+        tgtAccount.balance += i;
+    }
 }
